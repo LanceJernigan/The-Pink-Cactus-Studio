@@ -5,13 +5,13 @@ export const menuStructure: StructureResolver = (S) =>
     .title('Menu')
     .items([
       S.listItem()
-        .title('Categories')
-        .schemaType('menuItemCategory')
-        .child(S.documentTypeList('menuItemCategory').title('Categories')),
-      S.listItem()
         .title('Items')
         .schemaType('menuItems')
         .child(S.documentTypeList('menuItems').title('Items')),
+      S.listItem()
+        .title('Categories')
+        .schemaType('menuItemCategory')
+        .child(S.documentTypeList('menuItemCategory').title('Categories')),
       ...S.documentTypeListItems().filter(
         (listItem) => !['menuItemCategory', 'menuItems'].includes(listItem.getId() || ''),
       ),
