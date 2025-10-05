@@ -2,17 +2,65 @@ import type {StructureResolver} from 'sanity/structure'
 
 export const menuStructure: StructureResolver = (S) =>
   S.list()
-    .title('Menu')
+    .title('Content')
     .items([
       S.listItem()
-        .title('Items')
-        .schemaType('menuItems')
-        .child(S.documentTypeList('menuItems').title('Items')),
+        .title('Home')
+        .child(
+          S.editor()
+            .id('home')
+            .title('Home')
+            .schemaType('home')
+            .documentId('home')
+            .views([S.view.form()]),
+        ),
       S.listItem()
-        .title('Categories')
-        .schemaType('menuItemCategory')
-        .child(S.documentTypeList('menuItemCategory').title('Categories')),
-      ...S.documentTypeListItems().filter(
-        (listItem) => !['menuItemCategory', 'menuItems'].includes(listItem.getId() || ''),
-      ),
+        .title('Menu')
+        .child(
+          S.list()
+            .title('Menu')
+            .items([
+              S.listItem()
+                .title('Items')
+                .schemaType('menuItems')
+                .child(S.documentTypeList('menuItems').title('Items')),
+              S.listItem()
+                .title('Categories')
+                .schemaType('menuItemCategory')
+                .child(S.documentTypeList('menuItemCategory').title('Categories')),
+            ]),
+        ),
+      S.listItem()
+        .title('FAQs')
+        .child(
+          S.list()
+            .title('FAQs')
+            .items([
+              S.listItem()
+                .title('Hero')
+                .child(
+                  S.editor()
+                    .id('content.faqs')
+                    .title('Hero')
+                    .schemaType('content.faqs')
+                    .documentId('content.faqs'),
+                ),
+              S.documentTypeListItem('faqs').title('FAQs').schemaType('faqs'),
+            ]),
+        ),
+      S.listItem()
+        .title('Contact')
+        .child(
+          S.editor().id('contact').title('Contact').schemaType('contact').documentId('contact'),
+        ),
+      S.divider(),
+      S.listItem()
+        .title('Settings')
+        .child(
+          S.editor()
+            .id('siteSettings')
+            .title('Settings')
+            .schemaType('siteSettings')
+            .documentId('siteSettings'),
+        ),
     ])
