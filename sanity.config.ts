@@ -15,7 +15,6 @@ export default defineConfig({
     structureTool({
       structure: menuStructure,
     }),
-    visionTool(),
   ],
 
   schema: {
