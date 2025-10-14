@@ -82,4 +82,5 @@ export default defineType({
       ],
     }),
   ],
+  preview: {select: {title: 'hero.slogan'}},
 })

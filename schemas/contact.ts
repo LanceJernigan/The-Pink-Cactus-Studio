@@ -25,4 +25,5 @@ export default defineType({
       ],
     }),
   ],
+  preview: {select: {title: 'hero.title', content: 'hero.content'}},
 })
