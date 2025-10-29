@@ -46,7 +46,6 @@ export const menuStructure: StructureResolver = (S, context) =>
                     .schemaType('content.faqs')
                     .documentId('content.faqs'),
                 ),
-              S.documentTypeListItem('faqs').title('FAQs').schemaType('faqs'),
               orderableDocumentListDeskItem({
                 type: 'faqs',
                 title: 'FAQs',
