@@ -15,9 +15,13 @@ export default defineType({
     }),
     defineField({
       name: 'answer',
-      title: 'Answer',
-      type: 'text',
+      type: 'array',
       validation: (rule) => rule.required(),
+      of: [
+        {
+          type: 'block',
+        },
+      ],
     }),
     orderRankField({type: 'faqs'}),
   ],
